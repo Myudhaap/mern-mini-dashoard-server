@@ -5,6 +5,7 @@ import { authRouter, cartRouter, categoryRouter, productRouter, userRouter } fro
 import { connectDb } from "./config/DbConnect.js"
 
 dotenv.config()
+
 const app = express()
 
 connectDb()

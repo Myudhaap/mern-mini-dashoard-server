@@ -1,4 +1,4 @@
-import { ResponsePagination } from "../dto/resPagination.js"
+import CustomException from "../exceptions/ErrorException.js"
 import { Category } from "../models/Category.js"
 
 const categoryService = () => {

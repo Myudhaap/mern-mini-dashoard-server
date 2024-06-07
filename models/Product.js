@@ -12,12 +12,16 @@ const productSchema = new Schema({
     required: true,
   },
   price: {
-    type: mongoose.Types.Decimal128,
+    type: Number,
     required: true,
   },
   imageUrl: {
     type: String,
     required: true,
+  },
+  imageId: {
+    type: String,
+    required: true
   },
   createdAt: {
     type: Date,
