@@ -2,11 +2,15 @@ import express from "express"
 import cors from "cors"
 import dotenv from "dotenv"
 import { authRouter, cartRouter, categoryRouter, productRouter, userRouter } from "./routes/index.js"
+import { connectDb } from "./config/DbConnect.js"
 
 dotenv.config()
 const app = express()
 
-app.use(cors())
+connectDb()
+app.use(cors({
+    origin: "*"
+}))
 app.use(express.json())
 
 app.use("/api/auth", authRouter)
