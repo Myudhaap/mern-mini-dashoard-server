@@ -33,6 +33,7 @@ const userService = () => {
     */
     const getBy = async (payload) => {
         try{
+            console.log(payload)
             const user = await User.findOne(payload)
 
             if(!user) throw new CustomException("User not found", 404)

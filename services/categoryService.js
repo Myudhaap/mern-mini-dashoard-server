@@ -21,8 +21,6 @@ const categoryService = () => {
 
             if(!category) throw new CustomException("Category not found", 404)
 
-            console.log(category)
-
             return category
         }catch(e){
             throw e
@@ -42,8 +40,6 @@ const categoryService = () => {
             })
 
             await category.save()
-
-            console.log(category)
 
             return category
         }catch(e){
@@ -71,8 +67,6 @@ const categoryService = () => {
                 {new: true}
             )
 
-            console.log(category)
-
             return category
         }catch(e){
             throw e
@@ -92,8 +86,6 @@ const categoryService = () => {
                 },
                 {new: true}
             )
-
-            console.log(category)
 
             return category
         }catch(e){

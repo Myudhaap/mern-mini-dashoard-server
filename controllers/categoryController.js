@@ -6,7 +6,7 @@ const categoryController = () => {
       try{
             const categories = await categoryService().getAll()
 
-            res.status(200).json(new Response(200, "Successfully", categories))
+            res.status(200).json(new Response(200, "Successfully get all category", categories))
         }catch(e){
             console.log(e)
             res.status(e.statusCode || 500).json({message: e.message})
@@ -18,7 +18,7 @@ const categoryController = () => {
         try{
             const category = await categoryService().getById(id)
 
-            res.status(200).json(new Response(200, "Successfully", category))
+            res.status(200).json(new Response(200, "Successfully get by id category", category))
         }catch(e){
             console.log(e)
             res.status(e.statusCode || 500).json({message: e.message})
@@ -29,7 +29,7 @@ const categoryController = () => {
         try{
             const category = await categoryService().create(req.body)
 
-            res.status(201).json(new Response(201, "Successfully", category))
+            res.status(201).json(new Response(201, "Successfully created category", category))
         }catch(e){
             console.log(e)
             res.status(e.statusCode || 500).json({message: e.message})
@@ -40,7 +40,7 @@ const categoryController = () => {
         try{
             const category = await categoryService().update(req.body)
 
-            res.status(200).json(new Response(200, "Successfully", category))
+            res.status(200).json(new Response(200, "Successfully update category", category))
         }catch(e){
             console.log(e)
             res.status(e.statusCode || 500).json({message: e.message})
@@ -52,7 +52,7 @@ const categoryController = () => {
         try{
             const category = await categoryService().deleteCategory(id)
 
-            res.status(200).json(new Response(200, "Successfully", category))
+            res.status(200).json(new Response(200, "Successfully delete category", category))
         }catch(e){
             console.log(e)
             res.status(e.statusCode || 500).json({message: e.message})

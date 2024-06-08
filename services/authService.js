@@ -16,12 +16,13 @@ const authService = () => {
         }
     */
     const login = async (payload) => {
-        const {username, password} = payload
+        const {email, password} = payload
 
         try{
-            const user = await userServices.getBy({username})
+            const user = await userServices.getBy({email})
+            console.log(user)
             
-            if(!user || !(await bcrypt.compare(password, user.password))){
+            if(!user && !(await bcrypt.compare(password, user.password))){
                 throw new CustomException("Invalid email or password", 401)
             }
 

@@ -18,7 +18,6 @@ const productService = () => {
     
     const getById = async (id) => {
         try{
-            console.log(id)
             const product = await Product.findById(id)
 
             if(!product) throw new CustomException("Product not found", 404)
@@ -39,7 +38,6 @@ const productService = () => {
         }
     */
     const create = async (payload) => {
-        console.log(payload)
         try{
             const product = new Product({
                 ...payload

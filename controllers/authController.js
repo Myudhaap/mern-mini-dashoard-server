@@ -1,5 +1,6 @@
 import { Response } from "../dto/resDto.js"
 import authService from "../services/authService.js"
+import jwt from "jsonwebtoken"
 
 const {login, register} = authService()
 
@@ -41,8 +42,27 @@ const authController = () => {
         }
     }
 
+    const verifyToken = (req, res) => {
+        let token = req.headers['authorization'];
+      
+        if (!token) {
+          return res.status(401).json({ message: 'Token is required' });
+        }
+
+        token = token.substring(7)
+
+        jwt.verify(token, process.env.JWT_SECRET_KEY, (err, decoded) => {
+          if (err) {
+            return res.status(401).json({ message: 'Invalid token' });
+          }
+      
+          res.status(200).json({message: "Valid token"})
+        });
+      };
+
     return {
         loginUser,
+        verifyToken,
         registerUser
     }
 }
